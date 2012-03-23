@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../src/jquery-wtforms-formset.js"></script>
+    <script>
+      $(document).ready(function (){
+        $(".inputs, .more-stuff").formsetHelpers();
+        // This is only needed to show the example post, not needed in real life
+        $("form").submit(function (event){
+          $("#result").html("<h1>Posted data</h1><code>" + $(this).serialize() + "</code>");
+          event.preventDefault();
+        });
+      });
+    </script>
+    <style>
+      .inputs > input, .more-stuff > input {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Example</h1>
+    <form>
+      <h2>One part of the form</h2>
+      <div class="inputs">
+        <input type="text" id="test_formset-0" name="test_formset-0" value="Input 1"/>
+        <input type="text" id="test_formset-1" name="test_formset-1" value="Input 2"/>
+      </div>
+      <h2>The other...</h2>
+      <div class="more-stuff">
+        <input type="text" id="more_stuff-0" name="more_stuff-0" value="This is extra"/>
+        <input type="text" id="more_stuff-1" name="more_stuff-1" value="stuff"/>
+      </div>
+      <button type="submit">See posted data</button>
+    </form>
+    <div id="result">
+    </div>
+  </body>
+</html>
